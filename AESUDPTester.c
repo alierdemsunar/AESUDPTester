@@ -1,7 +1,7 @@
 /*
-	Compilation		:	gcc AESUdpTester.c -o AESUdpTester
-	Utilisation		:	./AESUdpTester {IP} {PORT}
-	Example			:	./AESUdpTester 192.168.1.1 80
+	Compilation		:	gcc AESUDPTester.c -o AESUDPTester
+	Utilisation		:	./AESUDPTester {IP} {PORT}
+	Example			:	./AESUDPTester 192.168.1.1 80
 	Writer			:	www.alierdemsunar.com (contact@alierdemsunar.com)
 */
 
@@ -30,7 +30,7 @@ int AESUdpTester(char *target, short port)
 		printf("Unknown destination: %s\n", target);
 		exit(0);
 	}
-	printf("Target attack has been started! Target: %s:%d\n", target, port);
+	printf("Attack has been started! Target: %s:%d\n", target, port);
 	bzero((char*) &udp, sizeof(udp));
 	bcopy(bbs->h_addr, (char *) &udp.sin_addr, bbs->h_length);
 	udp.sin_family = bbs->h_addrtype;
@@ -45,7 +45,7 @@ main(int argc, char **argv)
 	int i;
 	if(argc!=3)
 	{
-		fprintf(stderr, "Utilisation: ./AESUdpTester {IP} {PORT}\n", argv[0]);
+		fprintf(stderr, "Usage: ./AESUDPTester {IP} {PORT}\n", argv[0]);
 		exit(0);
 	}
 	i=AESUdpTester(argv[1], atoi(argv[2]));
